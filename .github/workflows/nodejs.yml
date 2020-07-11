@@ -26,6 +26,11 @@ jobs:
     - name: Run a one-line script
       run: echo Hello, world!
       # Runs a single command using the runners shell
+    - name: npm install, buld
+      # Install and buld project
+      run: |
+        make install
+      # Add environment variables
       env:
           CI: true
     - name: Run linter
