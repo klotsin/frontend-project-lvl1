@@ -6,7 +6,7 @@ const numIsEven = (num) => {
     } return 'no';
 };
 
-const userName = () => {
+const gameNumIsEven = () => {
 const name = readlineSync.question('May I have your name?: ');
 console.log(`Hello, ${name}!`);
 console.log('Answer "yes" if the number is even, otherwise answer "no".');
@@ -19,11 +19,11 @@ for (let i = 0; i < num.length;) {
         console.log('Correct!')
         i += 1;
     } else {
-        console.log(`"${number}" is wrong answer ;(. Correct answer was "${answerIsEven}".\n
-        Let's try again, ${name}!`);
+        console.log(`"${number}" is wrong answer ;(. Correct answer was "${answerIsEven}".\nLet's try again, ${name}!`);
         return;
     }
 }
 console.log(`Congratulations, ${name}!`);
 };
-export default userName;
+
+export default gameNumIsEven;
