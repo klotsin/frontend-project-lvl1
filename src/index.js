@@ -65,44 +65,80 @@ console.log(`Congratulations, ${name}!`);
 };
 
 export const gameGcd = () => {
-    console.log('Welcome to the Brain Games!');
-    const name = readlineSync.question('May I have your name?: ');
-    console.log(`Hello, ${name}!`);
-    console.log('Find the greatest common divisor of given numbers.');
-    let start = 1;
-    let min = 0;
-    let num1 = 0;
-    let num2 = 0;
-    while (start <= 3) {
-        const number1 = getRandomInt(100);
-        const number2 = getRandomInt(100);
-        num1 = number1;
-        num2 = number2;
-        if (number1 <= number2) {
-            min = number1;
-        } else {
-            min = number2;
+console.log('Welcome to the Brain Games!');
+const name = readlineSync.question('May I have your name?: ');
+console.log(`Hello, ${name}!`);
+console.log('Find the greatest common divisor of given numbers.');
+let start = 1;
+let min = 0;
+let num1 = 0;
+let num2 = 0;
+while (start <= 3) {
+    const number1 = getRandomInt(100);
+    const number2 = getRandomInt(100);
+    num1 = number1;
+    num2 = number2;
+    if (number1 <= number2) {
+        min = number1;
+    } else {
+        min = number2;
+    }
+    console.log(`Question: ${num1} ${num2}`);
+    const number = readlineSync.question('Your answer: ');
+    let result = 1;
+    for (let i = min; 1 < i; i -= 1) {
+        if (num1 === num2) {
+            result = num1;
+            break;
         }
-        console.log(`Question: ${num1} ${num2}`);
-        const number = readlineSync.question('Your answer: ');
-        let result = 1;
-        for (let i = min; 1 < i; i -= 1) {
-            if (num1 === num2) {
-                result = num1;
+        else if (num1 % i === 0 && num2 % i === 0) {
+                result = i;
                 break;
-            }
-            else if (num1 % i === 0 && num2 % i === 0) {
-                    result = i;
-                    break;
-            } 
-        }
-        if (String(result) === number) {
-            console.log('Correct!')
-            start += 1;
+        } 
+    }
+    if (String(result) === number) {
+        console.log('Correct!')
+        start += 1;
+    } else {
+        console.log(`"${number}" is wrong answer ;(. Correct answer was "${result}".\nLet's try again, ${name}!`);
+    return;
+    }
+}
+console.log(`Congratulations, ${name}!`);
+};
+
+export const gameProgression = () => {
+console.log('Welcome to the Brain Games!');
+const name = readlineSync.question('May I have your name?: ');
+console.log(`Hello, ${name}!`);
+console.log('What number is missing in the progression?');
+let stepGame = 1;
+while (stepGame <= 3) {
+    const progress = [];
+    const progressNewarr = [];
+    const step = getRandomInt(10);
+    const countStart = getRandomInt(10);
+    const char = getRandomInt(8);
+    progress.push(String(countStart));
+    progressNewarr.push(String(countStart));
+    let stepChange = countStart;
+    for (let i = 0; i < 9; i += 1) {
+        stepChange += step;
+        progress.push(String(stepChange));
+        if(i === char) {
+            progressNewarr.push('..');
         } else {
-            console.log(`"${number}" is wrong answer ;(. Correct answer was "${result}".\nLet's try again, ${name}!`);
-        return;
+            progressNewarr.push(String(stepChange)); 
         }
     }
-    console.log(`Congratulations, ${name}!`);
+    console.log(`Question: ${progressNewarr[0]} ${progressNewarr[1]} ${progressNewarr[2]} ${progressNewarr[3]} ${progressNewarr[4]} ${progressNewarr[5]} ${progressNewarr[6]} ${progressNewarr[7]} ${progressNewarr[8]} ${progressNewarr[9]}`);
+    const number = readlineSync.question('Your answer: ');
+    if (String(number) === progress[char + 1]) {
+        console.log('Correct!')
+        stepGame += 1;
+    } else {
+        console.log(`"${number}" is wrong answer ;(. Correct answer was "${progress[char + 1]}".\nLet's try again, ${name}!`);
+    return;
+    }
+}
 };

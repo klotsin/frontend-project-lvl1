@@ -9,3 +9,7 @@ brain-calc
 
 brain-gcd
 [![asciicast](https://asciinema.org/a/Wn7GCXXQZ9m1FYOWYLAuKz9Jo.svg)](https://asciinema.org/a/Wn7GCXXQZ9m1FYOWYLAuKz9Jo)
+
+brain-progression
+[![asciicast](https://asciinema.org/a/VpSruMRpmVjFyF9C2mbW7oiN8.svg)](https://asciinema.org/a/VpSruMRpmVjFyF9C2mbW7oiN8)
+
