@@ -8,9 +8,16 @@ const numIsEven = (num) => {
 
 const getRandomInt = max => {
     return Math.floor(Math.random() * Math.floor(max));
-}
+};
 
-
+const isPrime = (num) => {
+    for (let i = num - 1; 1 < i; i -= 1) {
+        if (num % i === 0) {
+            return 'no';
+        }
+    }
+    return 'yes';
+};
 
 export const gameNumIsEven = () => {
 console.log('Welcome to the Brain Games!');
@@ -141,4 +148,25 @@ while (stepGame <= 3) {
     return;
     }
 }
+};
+
+export const gamePrime = () => {
+console.log('Welcome to the Brain Games!');
+const name = readlineSync.question('May I have your name?: ');
+console.log(`Hello, ${name}!`);
+console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
+let stepGame = 1;
+    while (stepGame <= 3) {
+        const count = getRandomInt(21);
+        console.log(`Question: ${count}`);
+        const answer = readlineSync.question('Your answer: ');
+        if (isPrime(count) === answer) {
+            console.log('Correct!')
+            stepGame += 1;
+        } else {
+            console.log(`"${answer}" is wrong answer ;(. Correct answer was "${isPrime(count)}".\nLet's try again, ${name}!`);
+        return;
+        }
+    }
+    console.log(`Congratulations, ${name}!`);
 };

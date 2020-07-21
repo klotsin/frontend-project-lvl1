@@ -13,3 +13,6 @@ brain-gcd
 brain-progression
 [![asciicast](https://asciinema.org/a/VpSruMRpmVjFyF9C2mbW7oiN8.svg)](https://asciinema.org/a/VpSruMRpmVjFyF9C2mbW7oiN8)
 
+brain-prime
+[![asciicast](https://asciinema.org/a/lBNolCX0jWFc2MLQOK5rmB3CJ.svg)](https://asciinema.org/a/lBNolCX0jWFc2MLQOK5rmB3CJ)
+
