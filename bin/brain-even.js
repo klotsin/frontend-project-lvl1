@@ -1,4 +1,4 @@
 #!/usr/bin/env node
-import { gameNumIsEven } from '../src/index.js';
+import { gameNumIsEven } from '../games/cli-brain-even.js';
 gameNumIsEven();
 export default gameNumIsEven;
