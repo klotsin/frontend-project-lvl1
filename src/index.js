@@ -24,3 +24,5 @@ const gameEngine = () => {
   }
   console.log(`Congratulations, ${name}!`);
 };
+
+export default gameEngine;
