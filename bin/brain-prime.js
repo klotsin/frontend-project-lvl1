@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import  { gamePrime  }  from '../games/cli-brain-prime.js';
-gamePrime();
-export default gamePrime;
+import startGamePrime from '../src/games/cli-brain-prime.js';
+
+startGamePrime();

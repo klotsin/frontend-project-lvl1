@@ -1,5 +1,5 @@
 #!/usr/bin/env node
 
-import  { gameProgression  }  from '../games/cli-brain-progression.js';
-gameProgression();
-export default gameProgression;
+import startGameProgression from '../src/games/cli-brain-progression.js';
+
+startGameProgression();
