@@ -24,7 +24,6 @@ jobs:
     - uses: actions/setup-node@v1
       with:
       node-version: '13.x'
-      check-latest: true
       - run: npm install
       - run: npm publish
     # Runs a single command using the runners shell
