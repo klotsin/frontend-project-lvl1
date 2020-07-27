@@ -8,7 +8,15 @@ const numIsEven = (num) => {
     return 'yes';
   } return 'no';
 };
-const randomNum = () => getRandomInt(100);
+const randomNum = () => {
+  const array = [];
+  const num = getRandomInt(100);
+  const result = (numIsEven(num));
+  const question = `Question: ${num}`;
+  array.push(question);
+  array.push(result);
+  return array;
+};
 
 /*
 const startGameEven = () => {
@@ -41,10 +49,7 @@ export default startGameEven;
 
 const startGameEven = () => {
   const gameQuestion = 'Answer "yes" if the number is even, otherwise answer "no".';
-  const count = randomNum();
-  const result = (numIsEven(count));
-  const question = `Question: ${count}`;
-  gameEngine(result, gameQuestion, question);
+  gameEngine(gameQuestion, randomNum());
 };
 
 export default startGameEven;
