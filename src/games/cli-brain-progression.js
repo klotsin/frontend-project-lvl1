@@ -29,7 +29,7 @@ const calculateResult = () => {
 };
 
 const startGameProgression = () => {
-  const gameQuestion = 'Answer "yes" if the number is even, otherwise answer "no".';
+  const gameQuestion = 'What number is missing in the progression?';
   gameEngine(gameQuestion, calculateResult);
 };
 
