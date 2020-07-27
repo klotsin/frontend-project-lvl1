@@ -7,13 +7,14 @@ const gameEngine = (gameQuestion, questionAndResult) => {
   console.log(gameQuestion);
   let stepGame = 0;
   while (stepGame < 3) {
-    console.log(questionAndResult[0]);
+    const QuestResult = questionAndResult();
+    console.log(QuestResult[0]);
     const answerOnQuestion = readlineSync.question('Your answer: ');
-    if (questionAndResult[1] === answerOnQuestion) {
+    if (QuestResult[1] === answerOnQuestion) {
       console.log('Correct!');
       stepGame += 1;
     } else {
-      console.log(`"${answerOnQuestion}" is wrong answer ;(. Correct answer was "${questionAndResult[1]}".\nLet's try again, ${name}!`);
+      console.log(`"${answerOnQuestion}" is wrong answer ;(. Correct answer was "${QuestResult[1]}".\nLet's try again, ${name}!`);
       return;
     }
   }

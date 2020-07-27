@@ -1,4 +1,4 @@
-import readlineSync from 'readline-sync';
+import gameEngine from '../index.js';
 
 const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
 
@@ -11,25 +11,19 @@ const isPrime = (num) => {
   return 'yes';
 };
 
+const calculateResult = () => {
+  const array = [];
+  const count = getRandomInt(21);
+  const result = (isPrime(count));
+  const question = `Question: ${count}`;
+  array.push(question);
+  array.push(result);
+  return array;
+};
+
 const startGamePrime = () => {
-  console.log('Welcome to the Brain Games!');
-  const name = readlineSync.question('May I have your name?: ');
-  console.log(`Hello, ${name}!`);
-  console.log('Answer "yes" if given number is prime. Otherwise answer "no".');
-  let stepGame = 1;
-  while (stepGame <= 3) {
-    const count = getRandomInt(21);
-    console.log(`Question: ${count}`);
-    const answer = readlineSync.question('Your answer: ');
-    if (isPrime(count) === answer) {
-      console.log('Correct!');
-      stepGame += 1;
-    } else {
-      console.log(`"${answer}" is wrong answer ;(. Correct answer was "${isPrime(count)}".\nLet's try again, ${name}!`);
-      return;
-    }
-  }
-  console.log(`Congratulations, ${name}!`);
+  const gameQuestion = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+  gameEngine(gameQuestion, calculateResult);
 };
 
 export default startGamePrime;
