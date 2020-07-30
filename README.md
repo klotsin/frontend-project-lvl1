@@ -1,7 +1,7 @@
 # Frontend project: brain-games #
 
 [![Maintainability](https://api.codeclimate.com/v1/badges/509c04b93ae6d56effc3/maintainability)](https://codeclimate.com/github/klotsin/frontend-project-lvl1/maintainability)
-![CI](https://github.com/klotsin/frontend-project-lvl1/workflows/CI/badge.svg?branch=master)
+![CI](https://github.com/klotsin/frontend-project-lvl1/workflows/CI/badge.svg)
 
 <br>
  1.brain-even
