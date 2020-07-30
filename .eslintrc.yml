@@ -2,8 +2,6 @@ env:
  "es2020": true,
 extends:
   - 'airbnb-base'
-  - 'eslint-config-airbnb-base'
-  - 'eslint:recommended'
 rules: {
   no-console: 0,
   import/extensions: 0

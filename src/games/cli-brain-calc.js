@@ -1,13 +1,11 @@
-import gameEngine from '../index.js';
+import runGameEngine from '../index.js';
+import getRandomInt from '../utils.js';
 
-const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
-
-const calculateResult = () => {
-  const array = [];
+const getResult = () => {
   const char = ['+', '-', '*'];
-  const number1 = getRandomInt(30);
-  const number2 = getRandomInt(20);
-  const charIndex = getRandomInt(2);
+  const number1 = getRandomInt(20, 30);
+  const number2 = getRandomInt(10, 20);
+  const charIndex = getRandomInt(0, 2);
   let answerIsCalc = 0;
   if (char[charIndex] === '+') {
     answerIsCalc = number1 + number2;
@@ -16,16 +14,15 @@ const calculateResult = () => {
   } else {
     answerIsCalc = number1 * number2;
   }
-  const result = (String(answerIsCalc));
-  const question = `Question: ${number1} ${char[charIndex]} ${number2}`;
-  array.push(question);
-  array.push(result);
-  return array;
+  const correctAnswer = (String(answerIsCalc));
+  const askAQuestion = `${number1} ${char[charIndex]} ${number2}`;
+  return [askAQuestion, correctAnswer];
 };
 
+const showTask = () => 'What is the result of the expression?';
+
 const startGameCalc = () => {
-  const gameQuestion = 'What is the result of the expression?';
-  gameEngine(gameQuestion, calculateResult);
+  runGameEngine(showTask, getResult);
 };
 
 export default startGameCalc;

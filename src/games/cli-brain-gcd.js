@@ -1,37 +1,25 @@
-import gameEngine from '../index.js';
+import runGameEngine from '../index.js';
+import getRandomInt from '../utils.js';
 
-const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
-
-const calculateResult = () => {
-  const array = [];
-  let min = 0;
-  const number1 = getRandomInt(100);
-  const number2 = getRandomInt(100);
-  if (number1 <= number2) {
-    min = number1;
-  } else {
-    min = number2;
+const getGcd = (a, b) => {
+  if (b === 0) {
+    return a;
   }
-  let resultNumber = 1;
-  for (let i = min; i > 1; i -= 1) {
-    if (number1 === number2) {
-      resultNumber = number1;
-      break;
-    } else if (number1 % i === 0 && number2 % i === 0) {
-      resultNumber = i;
-      break;
-    }
-  }
-  const result = (String(resultNumber));
-  const question = `Question: ${number1} ${number2}`;
-  array.push(question);
-  array.push(result);
-  return array;
+  return getGcd(b, a % b);
 };
 
+const getResult = () => {
+  const number1 = getRandomInt(0, 100);
+  const number2 = getRandomInt(0, 100);
+  const correctAnswer = (String(getGcd(number1, number2)));
+  const askAQuestion = `${number1} ${number2}`;
+  return [askAQuestion, correctAnswer];
+};
+
+const showTask = () => 'Find the greatest common divisor of given numbers.';
+
 const startGameGcd = () => {
-  const gameQuestion = 'Find the greatest common divisor of given numbers.';
-  gameEngine(gameQuestion, calculateResult);
+  runGameEngine(showTask, getResult);
 };
 
 export default startGameGcd;

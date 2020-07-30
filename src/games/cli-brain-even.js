@@ -1,26 +1,17 @@
-import gameEngine from '../index.js';
+import runGameEngine from '../index.js';
+import getRandomInt from '../utils.js';
 
-const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
-
-const numIsEven = (num) => {
-  if (num % 2 === 0) {
-    return 'yes';
-  } return 'no';
+const getResult = () => {
+  const numberForCalc = getRandomInt(0, 100);
+  const correctAnswer = (numberForCalc % 2 === 0) ? 'yes' : 'no';
+  const askAQuestion = numberForCalc;
+  return [askAQuestion, correctAnswer];
 };
 
-const calculateResult = () => {
-  const array = [];
-  const num = getRandomInt(100);
-  const result = (numIsEven(num));
-  const question = `Question: ${num}`;
-  array.push(question);
-  array.push(result);
-  return array;
-};
+const showTask = () => 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const startGameEven = () => {
-  const gameQuestion = 'Answer "yes" if the number is even, otherwise answer "no".';
-  gameEngine(gameQuestion, calculateResult);
+  runGameEngine(showTask, getResult);
 };
 
 export default startGameEven;

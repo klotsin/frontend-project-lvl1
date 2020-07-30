@@ -1,14 +1,12 @@
-import gameEngine from '../index.js';
+import runGameEngine from '../index.js';
+import getRandomInt from '../utils.js';
 
-const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
-
-const calculateResult = () => {
-  const array = [];
+const getResult = () => {
   const progress = [];
   const progressNewarr = [];
-  const step = getRandomInt(10);
-  const countStart = getRandomInt(10);
-  const char = getRandomInt(8);
+  const step = getRandomInt(0, 10);
+  const countStart = getRandomInt(0, 10);
+  const char = getRandomInt(0, 8);
   progress.push(String(countStart));
   progressNewarr.push(String(countStart));
   let stepChange = countStart;
@@ -21,16 +19,15 @@ const calculateResult = () => {
       progressNewarr.push(String(stepChange));
     }
   }
-  const result = (`${progress[char + 1]}`);
-  const question = `Question: ${progressNewarr[0]} ${progressNewarr[1]} ${progressNewarr[2]} ${progressNewarr[3]} ${progressNewarr[4]} ${progressNewarr[5]} ${progressNewarr[6]} ${progressNewarr[7]} ${progressNewarr[8]} ${progressNewarr[9]}`;
-  array.push(question);
-  array.push(result);
-  return array;
+  const correctAnswer = (`${progress[char + 1]}`);
+  const askAQuestion = `${progressNewarr[0]} ${progressNewarr[1]} ${progressNewarr[2]} ${progressNewarr[3]} ${progressNewarr[4]} ${progressNewarr[5]} ${progressNewarr[6]} ${progressNewarr[7]} ${progressNewarr[8]} ${progressNewarr[9]}`;
+  return [askAQuestion, correctAnswer];
 };
 
+const showTask = () => 'What number is missing in the progression?';
+
 const startGameProgression = () => {
-  const gameQuestion = 'What number is missing in the progression?';
-  gameEngine(gameQuestion, calculateResult);
+  runGameEngine(showTask, getResult);
 };
 
 export default startGameProgression;

@@ -1,29 +1,22 @@
-import gameEngine from '../index.js';
+import runGameEngine from '../index.js';
+import getRandomInt from '../utils.js';
 
-const getRandomInt = (max) => Math.floor(Math.random() * Math.floor(max));
-
-const isPrime = (num) => {
-  for (let i = num - 1; i > 1; i -= 1) {
-    if (num % i === 0) {
-      return 'no';
+const getResult = () => {
+  const numberForCalc = getRandomInt(0, 21);
+  let correctAnswer = 'yes';
+  for (let i = numberForCalc - 1; i > 1; i -= 1) {
+    if (numberForCalc % i === 0) {
+      correctAnswer = 'no';
     }
   }
-  return 'yes';
+  const askAQuestion = numberForCalc;
+  return [askAQuestion, correctAnswer];
 };
 
-const calculateResult = () => {
-  const array = [];
-  const count = getRandomInt(21);
-  const result = (isPrime(count));
-  const question = `Question: ${count}`;
-  array.push(question);
-  array.push(result);
-  return array;
-};
+const showTask = () => 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const startGamePrime = () => {
-  const gameQuestion = 'Answer "yes" if given number is prime. Otherwise answer "no".';
-  gameEngine(gameQuestion, calculateResult);
+  runGameEngine(showTask, getResult);
 };
 
 export default startGamePrime;
