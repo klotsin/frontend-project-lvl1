@@ -1,25 +1,25 @@
 import runGameEngine from '../index.js';
 import getRandomInt from '../utils.js';
 
-const getGcd = (a, b) => {
+const isGcd = (a, b) => {
   if (b === 0) {
     return a;
   }
-  return getGcd(b, a % b);
+  return isGcd(b, a % b);
 };
 
-const getResult = () => {
+const genQuestionAndAnswer = () => {
   const number1 = getRandomInt(0, 100);
   const number2 = getRandomInt(0, 100);
-  const correctAnswer = (String(getGcd(number1, number2)));
-  const askAQuestion = `${number1} ${number2}`;
-  return [askAQuestion, correctAnswer];
+  const correctAnswer = (String(isGcd(number1, number2)));
+  const question = `${number1} ${number2}`;
+  return [question, correctAnswer];
 };
 
-const showTask = () => 'Find the greatest common divisor of given numbers.';
+const showTask = 'Find the greatest common divisor of given numbers.';
 
 const startGameGcd = () => {
-  runGameEngine(showTask, getResult);
+  runGameEngine(showTask, genQuestionAndAnswer);
 };
 
 export default startGameGcd;

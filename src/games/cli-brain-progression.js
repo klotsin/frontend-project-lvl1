@@ -1,33 +1,32 @@
 import runGameEngine from '../index.js';
 import getRandomInt from '../utils.js';
 
-const getResult = () => {
-  const progress = [];
-  const progressNewarr = [];
-  const step = getRandomInt(0, 10);
-  const countStart = getRandomInt(0, 10);
-  const char = getRandomInt(0, 8);
-  progress.push(String(countStart));
-  progressNewarr.push(String(countStart));
-  let stepChange = countStart;
+const genProgress = (initialValue, progressStep) => {
+  const progression = [];
+  progression.push(String(initialValue));
+  let stepChange = initialValue;
   for (let i = 0; i < 9; i += 1) {
-    stepChange += step;
-    progress.push(String(stepChange));
-    if (i === char) {
-      progressNewarr.push('..');
-    } else {
-      progressNewarr.push(String(stepChange));
-    }
+    stepChange += progressStep;
+    progression.push(String(stepChange));
   }
-  const correctAnswer = (`${progress[char + 1]}`);
-  const askAQuestion = `${progressNewarr[0]} ${progressNewarr[1]} ${progressNewarr[2]} ${progressNewarr[3]} ${progressNewarr[4]} ${progressNewarr[5]} ${progressNewarr[6]} ${progressNewarr[7]} ${progressNewarr[8]} ${progressNewarr[9]}`;
-  return [askAQuestion, correctAnswer];
+  return progression;
 };
 
-const showTask = () => 'What number is missing in the progression?';
+const genQuestionAndAnswer = () => {
+  const initialValue = getRandomInt(1, 10);
+  const progressStep = getRandomInt(2, 10);
+  const replaceIndex = getRandomInt(0, 10);
+  const progression = genProgress(initialValue, progressStep);
+  const correctAnswer = (`${progression[replaceIndex]}`);
+  progression[replaceIndex] = '..';
+  const question = progression.join(', ');
+  return [question, correctAnswer];
+};
+
+const showTask = 'What number is missing in the progression?';
 
 const startGameProgression = () => {
-  runGameEngine(showTask, getResult);
+  runGameEngine(showTask, genQuestionAndAnswer);
 };
 
 export default startGameProgression;
