@@ -14,10 +14,10 @@ const genQuestionAndAnswer = () => {
   return [question, correctAnswer];
 };
 
-const showTask = 'Answer "yes" if the number is even, otherwise answer "no".';
+const task = 'Answer "yes" if the number is even, otherwise answer "no".';
 
 const startGameEven = () => {
-  runGameEngine(showTask, genQuestionAndAnswer);
+  runGameEngine(task, genQuestionAndAnswer);
 };
 
 export default startGameEven;

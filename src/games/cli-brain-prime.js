@@ -17,10 +17,10 @@ const genQuestionAndAnswer = () => {
   return [question, correctAnswer];
 };
 
-const showTask = 'Answer "yes" if given number is prime. Otherwise answer "no".';
+const task = 'Answer "yes" if given number is prime. Otherwise answer "no".';
 
 const startGamePrime = () => {
-  runGameEngine(showTask, genQuestionAndAnswer);
+  runGameEngine(task, genQuestionAndAnswer);
 };
 
 export default startGamePrime;

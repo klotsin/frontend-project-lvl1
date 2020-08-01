@@ -16,10 +16,10 @@ const genQuestionAndAnswer = () => {
   return [question, correctAnswer];
 };
 
-const showTask = 'Find the greatest common divisor of given numbers.';
+const task = 'Find the greatest common divisor of given numbers.';
 
 const startGameGcd = () => {
-  runGameEngine(showTask, genQuestionAndAnswer);
+  runGameEngine(task, genQuestionAndAnswer);
 };
 
 export default startGameGcd;
