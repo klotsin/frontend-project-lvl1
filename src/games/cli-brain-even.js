@@ -3,13 +3,13 @@ import getRandomInt from '../utils.js';
 
 const isEven = (num) => {
   if (num % 2 === 0) {
-    return true;
-  } return false;
+    return 'yes';
+  } return 'no';
 };
 
 const genQuestionAndAnswer = () => {
   const number = getRandomInt(0, 100);
-  const correctAnswer = isEven(number) ? 'yes' : 'no';
+  const correctAnswer = isEven(number);
   const question = String(number);
   return [question, correctAnswer];
 };

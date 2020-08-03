@@ -2,17 +2,20 @@ import runGameEngine from '../index.js';
 import getRandomInt from '../utils.js';
 
 const isPrime = (num) => {
+  if (num < 2) {
+    return 'no';
+  }
   for (let i = num - 1; i > 1; i -= 1) {
     if (num % i === 0) {
-      return false;
+      return 'no';
     }
   }
-  return true;
+  return 'yes';
 };
 
 const genQuestionAndAnswer = () => {
   const number = getRandomInt(0, 21);
-  const correctAnswer = isPrime(number) ? 'yes' : 'no';
+  const correctAnswer = isPrime(number);
   const question = String(number);
   return [question, correctAnswer];
 };

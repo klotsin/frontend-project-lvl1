@@ -1,23 +1,24 @@
 import runGameEngine from '../index.js';
 import getRandomInt from '../utils.js';
 
-const genProgression = (initialValue, progressStep) => {
+const progressionLength = 10;
+
+const genProgression = (firstItem, step) => {
   const progression = [];
-  progression.push(String(initialValue));
-  let stepChange = initialValue;
-  for (let i = 0; i < 9; i += 1) {
-    stepChange += progressStep;
-    progression.push(String(stepChange));
+  let current = 0;
+  for (let i = 0; i < progressionLength; i += 1) {
+    current = firstItem + i * step;
+    progression.push(current);
   }
   return progression;
 };
 
 const genQuestionAndAnswer = () => {
-  const initialValue = getRandomInt(1, 10);
-  const progressStep = getRandomInt(2, 10);
-  const replaceIndex = getRandomInt(0, 10);
-  const progression = genProgression(initialValue, progressStep);
-  const correctAnswer = (`${progression[replaceIndex]}`);
+  const firstItem = getRandomInt(1, progressionLength);
+  const step = getRandomInt(2, progressionLength);
+  const replaceIndex = getRandomInt(0, progressionLength - 1);
+  const progression = genProgression(firstItem, step);
+  const correctAnswer = (String(progression[replaceIndex]));
   progression[replaceIndex] = '..';
   const question = progression.join(', ');
   return [question, correctAnswer];
