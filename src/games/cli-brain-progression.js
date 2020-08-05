@@ -5,9 +5,8 @@ const progressionLength = 10;
 
 const genProgression = (firstItem, step) => {
   const progression = [];
-  let current = 0;
   for (let i = 0; i < progressionLength; i += 1) {
-    current = firstItem + i * step;
+    const current = firstItem + i * step;
     progression.push(current);
   }
   return progression;
